@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Money Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>💰 Money Planner</h1>
+            <div class="currency-selector">
+                <label for="currency">Currency:</label>
+                <select id="currency">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="JPY">JPY (¥)</option>
+                    <option value="CAD">CAD (C$)</option>
+                    <option value="AUD">AUD (A$)</option>
+                    <option value="INR">INR (₹)</option>
+                    <option value="LKR">LKR (₨)</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <div class="overview-cards">
+                <div class="card balance-card">
+                    <h3>Current Balance</h3>
+                    <div class="amount" id="currentBalance">$0.00</div>
+                </div>
+                <div class="card income-card">
+                    <h3>Monthly Income</h3>
+                    <div class="amount" id="monthlyIncome">$0.00</div>
+                </div>
+                <div class="card expenses-card">
+                    <h3>Monthly Expenses</h3>
+                    <div class="amount" id="monthlyExpenses">$0.00</div>
+                </div>
+                <div class="card savings-card">
+                    <h3>Savings Goal</h3>
+                    <div class="amount" id="savingsGoal">$0.00</div>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-card">
+                    <h3>Budget Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="budgetProgress"></div>
+                    </div>
+                    <div class="progress-text" id="budgetText">0% of budget used</div>
+                </div>
+                <div class="progress-card">
+                    <h3>Savings Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill savings-fill" id="savingsProgress"></div>
+                    </div>
+                    <div class="progress-text" id="savingsText">0% of goal reached</div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <h3>💰 Income</h3>
+                    <div class="input-row">
+                        <input type="number" id="incomeAmount" placeholder="Enter amount" step="0.01">
+                        <input type="text" id="incomeSource" placeholder="Income source">
+                        <button onclick="addIncome()" class="btn-primary">Add Income</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <h3>💸 Expenses</h3>
+                    <div class="input-row">
+                        <input type="number" id="expenseAmount" placeholder="Enter amount" step="0.01">
+                        <select id="expenseCategory">
+                            <option value="food">🍕 Food</option>
+                            <option value="transport">🚗 Transport</option>
+                            <option value="housing">🏠 Housing</option>
+                            <option value="utilities">⚡ Utilities</option>
+                            <option value="entertainment">🎮 Entertainment</option>
+                            <option value="healthcare">🏥 Healthcare</option>
+                            <option value="shopping">🛍️ Shopping</option>
+                            <option value="other">📝 Other</option>
+                        </select>
+                        <button onclick="addExpense()" class="btn-secondary">Add Expense</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <h3>🎯 Set Goals</h3>
+                    <div class="input-row">
+                        <input type="number" id="goalAmount" placeholder="Savings goal" step="0.01">
+                        <input type="number" id="budgetAmount" placeholder="Monthly budget" step="0.01">
+                        <button onclick="setGoals()" class="btn-accent">Set Goals</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transactions-section">
+                <h3>Recent Transactions</h3>
+                <div class="transaction-list" id="transactionList">
+                    <div class="no-transactions">No transactions yet. Add your first income or expense!</div>
+                </div>
+            </div>
+
+            <div class="expense-breakdown">
+                <h3>Expense Breakdown</h3>
+                <div class="expense-categories" id="expenseBreakdown">
+                    <div class="no-expenses">No expenses recorded yet</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
